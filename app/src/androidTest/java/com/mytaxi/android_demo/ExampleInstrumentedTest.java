@@ -6,13 +6,6 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.test.rule.ActivityTestRule;
 import com.mytaxi.android_demo.activities.MainActivity;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
@@ -36,14 +29,15 @@ public class ExampleInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        Thread.sleep(6000);
-
-        onView(withId(R.id.btn_login))
-                 .perform(click());
-
-
-
         assertEquals("com.mytaxi.android_demo", appContext.getPackageName());
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.LoginWithValidUser();
+
+        SearchPage searchPage = new SearchPage();
+        searchPage.SearchForValue("sa");
+
+        //Thread.sleep(5000);
 
     }
 }

@@ -36,8 +36,9 @@ public class ExampleInstrumentedTest {
 
         SearchPage searchPage = new SearchPage();
         searchPage.SearchForValue("sa");
+        searchPage.ChooseValueFromResults("ddd");
 
-        //Thread.sleep(5000);
-
+        DriverPage driverPage = new DriverPage();
+        driverPage.call();
     }
 }

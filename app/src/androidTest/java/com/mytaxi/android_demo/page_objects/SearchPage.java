@@ -1,5 +1,7 @@
 package com.mytaxi.android_demo;
 
+import com.mytaxi.android_demo.activities.MainActivity;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -14,10 +16,12 @@ import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.Matchers.hasToString;
 import static org.hamcrest.Matchers.equalTo;
 import android.support.test.espresso.matcher.RootMatchers;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 
 import android.support.test.rule.ActivityTestRule;
 
@@ -28,15 +32,15 @@ public class SearchPage extends BasePage{
     }
 
     public void SearchForValue(String searchValue) {
-        onView(withId(R.id.textSearch))
+        onData(withId(R.id.textSearch))
                 .perform(typeText(searchValue), closeSoftKeyboard());
     }
 
-    public void ChooseValueFromResults(String value) {
-       // onView(allOf(withId(R.id.map), withText("Sarah Coleman")))
-       // .perform(click());
+    public void ChooseValueFromResults(String value, MainActivity activity) {
+       // onView(allOf(withId(R.id.searchContainer), withText("Sarah Coleman")))
+        // .perform(click());
 
-        onView(allOf(allOf(withId(R.id.map)))).perform(click());
+      //  onView(allOf(withId(R.id.searchContainer))).perform(click());
 
       //  onData(hasToString(startsWith("S"))).inRoot(RootMatchers.isPlatformPopup())
       //          .inAdapterView(withId(R.id.map))
@@ -45,6 +49,11 @@ public class SearchPage extends BasePage{
        // onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
 
        // onData(equalTo("Sarah Coleman")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
+
+
+        onData(allOf(instanceOf(String.class)))
+                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
+                .perform(click());
     }
 
     public void AssertPage(){

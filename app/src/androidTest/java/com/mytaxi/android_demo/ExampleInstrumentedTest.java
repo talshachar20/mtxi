@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.Rule;
+import org.junit.Before;
 
 import static org.junit.Assert.*;
 
@@ -18,8 +19,15 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
 
+    private MainActivity mActivity = null;
+
     @Rule
     public ActivityTestRule<MainActivity> activityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
+
+    @Before
+    public void setActivity() {
+        mActivity = activityActivityTestRule.getActivity();
+    }
 
     @Test
     public void useAppContext() throws Exception {
@@ -32,7 +40,7 @@ public class ExampleInstrumentedTest {
 
         SearchPage searchPage = new SearchPage();
         searchPage.SearchForValue("sa");
-        searchPage.ChooseValueFromResults("ddd");
+        searchPage.ChooseValueFromResults("ddd", mActivity);
 
         DriverPage driverPage = new DriverPage();
         driverPage.CallDriver();

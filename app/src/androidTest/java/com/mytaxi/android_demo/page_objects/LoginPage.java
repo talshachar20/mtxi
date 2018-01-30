@@ -13,7 +13,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class LoginPage extends BasePage{
 
     public LoginPage() {
-        assertPage();
+        AssertPage();
     }
 
     public void LoginToApp(String username, String password) {
@@ -31,7 +31,7 @@ public class LoginPage extends BasePage{
         LoginToApp("whiteelephant261", "video");
     }
 
-    public void assertPage(){
+    public void AssertPage(){
         onView(withId(R.id.btn_login))
                 .check(matches(isDisplayed()));
     }

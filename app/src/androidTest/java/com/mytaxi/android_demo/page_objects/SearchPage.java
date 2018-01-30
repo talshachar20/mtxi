@@ -24,7 +24,7 @@ import android.support.test.rule.ActivityTestRule;
 public class SearchPage extends BasePage{
 
     public SearchPage() {
-        assertPage();
+        AssertPage();
     }
 
     public void SearchForValue(String searchValue) {
@@ -47,7 +47,7 @@ public class SearchPage extends BasePage{
        // onData(equalTo("Sarah Coleman")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
     }
 
-    public void assertPage(){
+    public void AssertPage(){
         onView(withId(R.id.textSearch))
                 .check(matches(isDisplayed()));
     }

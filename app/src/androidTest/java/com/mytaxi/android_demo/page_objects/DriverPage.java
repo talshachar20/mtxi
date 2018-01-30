@@ -8,20 +8,26 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 
 public class DriverPage extends BasePage{
 
     public DriverPage() {
-        assertPage();
+        AssertPage();
     }
 
-    public void callDriver() {
+    public void CallDriver() {
         onView(withId(R.id.fab))
                 .perform(click());
     }
 
-    public void asserPage() {
+    public void AssertPage() {
         onView(withId(R.id.fab))
                 .check(matches(isDisplayed()));
+    }
+
+    public void OutsideTheApp() {
+        onView(withId(R.id.fab))
+                .check(doesNotExist());
     }
 }

@@ -35,6 +35,6 @@ public class ExampleInstrumentedTest {
         searchPage.ChooseValueFromResults("ddd");
 
         DriverPage driverPage = new DriverPage();
-        driverPage.callDriver();
+        driverPage.CallDriver();
     }
 }

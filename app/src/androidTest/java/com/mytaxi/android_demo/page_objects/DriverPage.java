@@ -25,9 +25,4 @@ public class DriverPage extends BasePage{
         onView(withId(R.id.fab))
                 .check(matches(isDisplayed()));
     }
-
-    public void OutsideTheApp() {
-        onView(withId(R.id.fab))
-                .check(doesNotExist());
-    }
 }

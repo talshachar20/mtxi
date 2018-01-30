@@ -38,6 +38,8 @@ public class ExampleInstrumentedTest {
         LoginPage loginPage = new LoginPage();
         loginPage.LoginWithValidUser();
 
+        Thread.sleep(1000);
+
         SearchPage searchPage = new SearchPage();
         searchPage.SearchForValue("sa");
         searchPage.ChooseValueFromResults("ddd", mActivity);

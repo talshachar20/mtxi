@@ -28,6 +28,7 @@ public class LoginPage extends BasePage{
     }
 
     public void LoginWithValidUser() {
+        System.out.print("Login with valid user");
         LoginToApp("whiteelephant261", "video");
     }
 

@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.hasToString;
 import static org.hamcrest.Matchers.equalTo;
 import android.support.test.espresso.matcher.RootMatchers;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
+import java.util.concurrent.TimeUnit;
 
 import android.support.test.rule.ActivityTestRule;
 
@@ -32,15 +33,14 @@ public class SearchPage extends BasePage{
     }
 
     public void SearchForValue(String searchValue) {
+        System.out.print("Searching for Driver");
         onView(withId(R.id.textSearch))
                 .perform(typeText(searchValue), closeSoftKeyboard());
     }
 
     public void ChooseValueFromResults(String value, MainActivity activity) {
-        onData(allOf(instanceOf(String.class), is("Sarah Coleman")))
-                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
-                .perform(click());
-
+        System.out.print("Click on suggested option");
+        onView(allOf(withId(R.id.map))).perform(click());
     }
 
     public void AssertPage(){

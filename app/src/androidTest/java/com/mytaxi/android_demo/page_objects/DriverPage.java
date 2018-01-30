@@ -17,6 +17,7 @@ public class DriverPage extends BasePage{
     }
 
     public void CallDriver() {
+        System.out.print("Call the driver");
         onView(withId(R.id.fab))
                 .perform(click());
     }

@@ -32,29 +32,17 @@ public class SearchPage extends BasePage{
     }
 
     public void SearchForValue(String searchValue) {
-        onData(withId(R.id.textSearch))
+        onView(withId(R.id.textSearch))
                 .perform(typeText(searchValue), closeSoftKeyboard());
     }
 
     public void ChooseValueFromResults(String value, MainActivity activity) {
-       // onView(allOf(withId(R.id.searchContainer), withText("Sarah Coleman")))
-        // .perform(click());
-
-      //  onView(allOf(withId(R.id.searchContainer))).perform(click());
-
-      //  onData(hasToString(startsWith("S"))).inRoot(RootMatchers.isPlatformPopup())
-      //          .inAdapterView(withId(R.id.map))
-      //          .perform(click());
-
-       // onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
-
-       // onData(equalTo("Sarah Coleman")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
-
-
-        onData(allOf(instanceOf(String.class)))
-                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
-                .perform(click());
+        onData(allOf(instanceOf(String.class), withText("Sarah Coleman")))
+            .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
+            .perform(click());
     }
+
+
 
     public void AssertPage(){
         onView(withId(R.id.textSearch))

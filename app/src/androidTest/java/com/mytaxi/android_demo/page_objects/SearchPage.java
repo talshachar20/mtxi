@@ -37,12 +37,11 @@ public class SearchPage extends BasePage{
     }
 
     public void ChooseValueFromResults(String value, MainActivity activity) {
-        onData(allOf(instanceOf(String.class), withText("Sarah Coleman")))
-            .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
-            .perform(click());
+        onData(allOf(instanceOf(String.class), is("Sarah Coleman")))
+                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
+                .perform(click());
+
     }
-
-
 
     public void AssertPage(){
         onView(withId(R.id.textSearch))

@@ -10,7 +10,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.Espresso.onData;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
@@ -38,8 +37,7 @@ public class SearchPage extends BasePage{
                 .perform(typeText(searchValue), closeSoftKeyboard());
     }
 
-    public void ChooseValueFromResults(String value, MainActivity activity) {
-        System.out.print("Click on suggested option");
+    public void ChooseValueFromResults() {
         onView(allOf(withId(R.id.map))).perform(click());
     }
 

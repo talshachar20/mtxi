@@ -15,7 +15,6 @@ import org.junit.Before;
 
 import static org.junit.Assert.*;
 
-
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
 
@@ -38,11 +37,9 @@ public class ExampleInstrumentedTest {
         LoginPage loginPage = new LoginPage();
         loginPage.LoginWithValidUser();
 
-        Thread.sleep(1000);
-
         SearchPage searchPage = new SearchPage();
         searchPage.SearchForValue("sa");
-        searchPage.ChooseValueFromResults("ddd", mActivity);
+        searchPage.ChooseValueFromResults();
 
         DriverPage driverPage = new DriverPage();
         driverPage.CallDriver();

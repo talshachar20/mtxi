@@ -19,11 +19,12 @@ import static org.hamcrest.Matchers.hasToString;
 import static org.hamcrest.Matchers.equalTo;
 import android.support.test.espresso.matcher.RootMatchers;
 
+import android.support.test.rule.ActivityTestRule;
+
 public class SearchPage extends BasePage{
 
     public SearchPage() {
-        //varification for the current screen
-        onView(withId(R.id.searchContainer));
+        assertPage();
     }
 
     public void SearchForValue(String searchValue) {
@@ -43,6 +44,11 @@ public class SearchPage extends BasePage{
 
        // onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
 
+       // onData(equalTo("Sarah Coleman")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
+    }
 
+    public void assertPage(){
+        onView(withId(R.id.textSearch))
+                .check(matches(isDisplayed()));
     }
 }

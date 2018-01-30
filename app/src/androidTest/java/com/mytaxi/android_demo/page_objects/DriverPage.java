@@ -12,11 +12,16 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 public class DriverPage extends BasePage{
 
     public DriverPage() {
+        assertPage();
     }
 
-    public void call() {
+    public void callDriver() {
         onView(withId(R.id.fab))
                 .perform(click());
     }
 
+    public void asserPage() {
+        onView(withId(R.id.fab))
+                .check(matches(isDisplayed()));
+    }
 }

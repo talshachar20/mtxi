@@ -8,12 +8,12 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class LoginPage extends BasePage{
 
     public LoginPage() {
-        //varification for the current screen
-        onView(withId(R.id.btn_login));
+        assertPage();
     }
 
     public void LoginToApp(String username, String password) {
@@ -29,5 +29,10 @@ public class LoginPage extends BasePage{
 
     public void LoginWithValidUser() {
         LoginToApp("whiteelephant261", "video");
+    }
+
+    public void assertPage(){
+        onView(withId(R.id.btn_login))
+                .check(matches(isDisplayed()));
     }
 }

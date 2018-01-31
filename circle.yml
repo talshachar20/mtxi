@@ -2,6 +2,7 @@ checkout:
   post:
     - git submodule sync
     - git submodule update --init
+    - cp -r licenses/. $ANDROID_HOME/licenses
 
 test:
   pre:

@@ -6,9 +6,12 @@ checkout:
 test:
   pre:
   # start the emulator
+  - run:
+     name: Approve license for build tools
+     command: (echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
   - emulator -avd circleci-android22 -no-audio -no-window:
-    background: true
-    parallel: true
+     background: true
+     parallel: true
   # wait for it to have booted
   - circle-android wait-for-boot
   # unlock the emulator screen

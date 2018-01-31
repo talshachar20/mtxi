@@ -1,3 +1,7 @@
+checkout:
+  post:
+  - cp -r licenses/. $ANDROID_HOME/licenses
+  
 test:
   pre:
   # start the emulator

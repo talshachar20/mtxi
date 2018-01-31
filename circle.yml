@@ -1,7 +1,8 @@
 checkout:
   post:
-  - cp -r licenses/. $ANDROID_HOME/licenses
-  
+    - git submodule sync
+    - git submodule update --init
+
 test:
   pre:
   # start the emulator
